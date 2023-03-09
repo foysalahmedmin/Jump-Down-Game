@@ -29,7 +29,10 @@
     bottom: 0;
     left: 70px;
 }
-.ballAnimation{
+.ballAnimationJump{
+    animation: jump .5s;
+}
+.ballAnimationDown{
     animation: down .5s;
 }
 .ball > img{
