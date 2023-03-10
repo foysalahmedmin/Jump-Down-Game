@@ -46,15 +46,26 @@ let check = setInterval(() => {
     const gameOver = document.getElementById("gameOverFiled");
     const ball = document.getElementById("ball");
     const arrow = document.getElementById("arrow");
+    const fire = document.getElementById("fire");
     const ballJumpHeight = window.getComputedStyle(ball).getPropertyValue("bottom").slice(0, -2);
     const ballDownHeight = window.getComputedStyle(ball).getPropertyValue("height").slice(0, -2);
     const arrowPosition = window.getComputedStyle(arrow).getPropertyValue("left").slice(0, -2);
+    const firePosition = window.getComputedStyle(fire).getPropertyValue("left").slice(0, -2);
 
     // console.log( 165 > +arrowPosition );
     if(160> arrowPosition && 90 < arrowPosition  && 90 < ballDownHeight){
-        // console.log("loss");
+
         arrow.style.left = arrowPosition +"px"
         arrow.style.animation = "none"
         gameOver.style.display= "block"
+        clearInterval(blockChange)
+
+    }else if(175> firePosition  && 90 < firePosition  && 80 > ballJumpHeight){
+
+        fire.style.left = firePosition +"px"
+        fire.style.animation = "none"
+        gameOver.style.display= "block"
+        clearInterval(blockChange);
     }
+
 }, 10);
