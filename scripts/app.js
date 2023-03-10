@@ -1,4 +1,9 @@
 
+const gameField = document.getElementById("gameField");
+const gameOver = document.getElementById("gameOverFiled");
+const ball = document.getElementById("ball");
+const arrow = document.getElementById("arrow");
+const fire = document.getElementById("fire");
 
 const ballAct = (className) => {
     const ball = document.getElementById("ball");
@@ -13,23 +18,17 @@ const ballAct = (className) => {
 }
 
 document.onkeydown = (e) =>{
-
     // e = e || window.event;
-
     if (e.keyCode == '38') {
         ballAct('ballAnimationJump');
     }
     else if (e.keyCode == '40') {
         ballAct('ballAnimationDown');
     }
-
 };
 
 
-let blockChange = setInterval(() => {
-    console.log();
-    const arrow = document.getElementById("arrow");
-    const fire = document.getElementById("fire");
+const blockChange = setInterval(() => {
     let blockNum = Math.ceil(Math.random() * 2);
     if(blockNum == 1){
         arrow.style.display = "block";
@@ -43,12 +42,7 @@ let blockChange = setInterval(() => {
 
 
 let score = 0;
-let check = setInterval(() => {
-    const gameField = document.getElementById("gameField");
-    const gameOver = document.getElementById("gameOverFiled");
-    const ball = document.getElementById("ball");
-    const arrow = document.getElementById("arrow");
-    const fire = document.getElementById("fire");
+const check = setInterval(() => {
     const ballJumpHeight = window.getComputedStyle(ball).getPropertyValue("bottom").slice(0, -2);
     const ballDownHeight = window.getComputedStyle(ball).getPropertyValue("height").slice(0, -2);
     const arrowPosition = window.getComputedStyle(arrow).getPropertyValue("left").slice(0, -2);
@@ -68,7 +62,7 @@ let check = setInterval(() => {
         clearInterval(check);
         return false ;
 
-    }else if(170> firePosition  && 90 < firePosition  && 75 > ballJumpHeight){
+    }else if(165> firePosition  && 90 < firePosition  && 75 > ballJumpHeight){
 
         fire.style.left = firePosition +"px";
         fire.style.animation = "none";
