@@ -49,9 +49,9 @@
 
 @keyframes down {
     0%{height: 110px;}
-    30%{height: 90px;}
-    70%{height: 90px;}
-    100%{height: 110px;;}
+    30%{height: 80px;}
+    70%{height: 80px;}
+    100%{height: 110px;}
 }
 
 .fire{
@@ -90,4 +90,16 @@
     100%{
         right: calc(100% - 90px);
     }
+}
+
+.Game-over{
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.Game-over > h1{
+    color: red;
+    margin-bottom: 20px;
 }
