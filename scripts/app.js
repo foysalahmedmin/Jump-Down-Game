@@ -39,8 +39,10 @@ let blockChange = setInterval(() => {
         fire.style.display = "block";
     }
 
-}, 2000)
+}, 2000);
 
+
+let score = 0;
 let check = setInterval(() => {
     const gameField = document.getElementById("gameField");
     const gameOver = document.getElementById("gameOverFiled");
@@ -51,21 +53,30 @@ let check = setInterval(() => {
     const ballDownHeight = window.getComputedStyle(ball).getPropertyValue("height").slice(0, -2);
     const arrowPosition = window.getComputedStyle(arrow).getPropertyValue("left").slice(0, -2);
     const firePosition = window.getComputedStyle(fire).getPropertyValue("left").slice(0, -2);
+    score += .05;
+    console.log();
+    document.getElementById('score').innerText = Math.floor(score);
 
     // console.log( 165 > +arrowPosition );
     if(160> arrowPosition && 90 < arrowPosition  && 90 < ballDownHeight){
 
-        arrow.style.left = arrowPosition +"px"
-        arrow.style.animation = "none"
-        gameOver.style.display= "block"
-        clearInterval(blockChange)
-
-    }else if(175> firePosition  && 90 < firePosition  && 80 > ballJumpHeight){
-
-        fire.style.left = firePosition +"px"
-        fire.style.animation = "none"
-        gameOver.style.display= "block"
+        arrow.style.left = arrowPosition +"px";
+        arrow.style.animation = "none";
+        gameOver.style.display= "block";
+        document.getElementById("last-score").innerText = Math.floor(score);
         clearInterval(blockChange);
+        clearInterval(check);
+        return false ;
+
+    }else if(170> firePosition  && 90 < firePosition  && 75 > ballJumpHeight){
+
+        fire.style.left = firePosition +"px";
+        fire.style.animation = "none";
+        gameOver.style.display= "block";
+        document.getElementById("last-score").innerText = Math.floor(score);
+        clearInterval(blockChange);
+        clearInterval(check);
+        return false ;
     }
 
 }, 10);
