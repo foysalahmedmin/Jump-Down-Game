@@ -25,8 +25,25 @@ document.onkeydown = (e) =>{
 
 };
 
+
+let blockChange = setInterval(() => {
+    console.log();
+    const arrow = document.getElementById("arrow");
+    const fire = document.getElementById("fire");
+    let blockNum = Math.ceil(Math.random() * 2);
+    if(blockNum == 1){
+        arrow.style.display = "block";
+        fire.style.display = "none";
+    }else if(blockNum == 2){
+        arrow.style.display = "none";
+        fire.style.display = "block";
+    }
+
+}, 2000)
+
 let check = setInterval(() => {
     const gameField = document.getElementById("gameField");
+    const gameOver = document.getElementById("gameOverFiled");
     const ball = document.getElementById("ball");
     const arrow = document.getElementById("arrow");
     const ballJumpHeight = window.getComputedStyle(ball).getPropertyValue("bottom").slice(0, -2);
@@ -34,10 +51,10 @@ let check = setInterval(() => {
     const arrowPosition = window.getComputedStyle(arrow).getPropertyValue("left").slice(0, -2);
 
     // console.log( 165 > +arrowPosition );
-    if(165 > arrowPosition && 100 < arrowPosition  && 90 < ballDownHeight){
+    if(160> arrowPosition && 90 < arrowPosition  && 90 < ballDownHeight){
         // console.log("loss");
         arrow.style.left = arrowPosition +"px"
         arrow.style.animation = "none"
-        // gameField.innerHTML+= `<h1 style = "color: 'red'; position: 'absolute'; top:'47%'" >Game Over!</h1>`
+        gameOver.style.display= "block"
     }
-}, 100);
+}, 10);
