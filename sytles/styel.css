@@ -103,8 +103,8 @@
 .Game-over{
     position: absolute;
     left: 50%;
-    top: 47%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     z-index: 10;
 }
@@ -114,6 +114,13 @@
 }
 .Game-over > p {
     color: white;
+    margin-bottom: 20px;
+}
+#reload{
+    color: #fff;
+    background: black;
+    border: 2px solid white;
+    padding: 5px 11px;
 }
 .score{
     position: absolute;
