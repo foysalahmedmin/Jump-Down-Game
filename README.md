@@ -2,4 +2,5 @@
 Live Server: https://foysalahmedmin.github.io/Jump-Down-Game/
 
 
-Game Controler: Keyboard "Up Arrow" for Jump and KeyBoard "Down Arrow" for Doun
+Game Controler: Keyboard "Up Arrow" for Jump and KeyBoard "Down Arrow" for Down.
+
